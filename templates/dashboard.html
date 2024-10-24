@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- <title>Dashboard</title> -->
+</head>
+<body>
+    <div class="container">
+        
+        <a href="#add-asset-form" class="btn-btn-submit">Add New Asset</a>
+
+        <h1>YOUR PORTFOLIO</h1>
+
+        {% if portfolio_data %}
+            <ul>
+            {% for asset in portfolio_data %}
+                <li>{{ asset.type }} - {{ asset.symbol }}: 
+                    {{ asset.quantity }} units @ ${{ asset.purchase_price }} 
+                    {% if asset.current_price %}
+                        | Current Price: ${{ "%.2f"|format(asset.current_price) }}
+                        | Profit/Loss: ${{ "%.2f"|format(asset.profit_loss) }}
+                        | ROI: {{ "%.2f"|format(asset.roi) }}%
+                    {% endif %}
+
+                    <div class="action-buttons">
+                        <a href="{{ url_for('edit_asset', asset_id=asset['id']) }}" class="btn btn-edit">Edit</a>
+                        <a href="{{ url_for('delete_asset', asset_id=asset['id']) }}" class="btn btn-delete">Delete</a>
+                    </div>
+
+                </li>
+            {% endfor %}
+            </ul>
+
+        {% else %}
+            <p>No assets in your portfolio yet.</p>
+        {% endif %}
+
+        <!-- <h2>Portfolio Distribution</h2> -->
+        <img src="{{ url_for('static', filename='pie_chart.png') }}" alt="Asset Allocation Pie Chart">
+        <!-- <h2>Portfolio Value by Asset Type</h2> -->
+        <img src="{{ url_for('static', filename='bar_chart.png') }}" alt="Portfolio Value Bar Chart">
+
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+
+    </div>
+
+
+
+    <div class="form-container" id="add-asset-form">
+        <h2>Add a new asset to your portfolio</h2>
+        <form method="POST" action="/add_asset">
+            <div class="form-group">
+                <label for="type">Select Asset Type:</label>
+                <select name="type" id="type">
+                    <option value="Stock">Stock</option>
+                    <option value="Cryptocurrency">Cryptocurrency</option>
+                    <option value="Real Estate">Real Estate</option>
+                    <option value="Commodity">Commodity</option>
+                    <option value="Cash">Cash</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="symbol">Asset Identifier (e.g., AAPL for stock):</label>
+                <input type="text" id="symbol" name="symbol" required>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Purchase Price/Value:</label>
+                <input type="number" id="price" name="purchase_price" required>
+            </div>
+
+            <button type="submit" class="btn btn-submit">Add Asset</button>
+        </form>
+    </div>
+
+
+</body>
+</html>

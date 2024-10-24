@@ -1,0 +1,165 @@
+body {
+    background-color: #171616;
+    color: #f2f2f2;
+}
+
+/* Container styling */
+.container {
+    background-color: #2c2b2b;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Links for Edit/Delete buttons */
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    /* text-decoration: underline; */
+    background-color: #c69749;
+}
+
+
+/* Header styling */
+h1 {
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+    color: #e0c097;
+
+}
+
+/* Portfolio list styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    font-size: 1.2em;
+    display: flex; /* Add this to turn the list item into a flex container */
+    justify-content: space-between; /* This will push the text and buttons to opposite ends */
+    align-items: center; /* Align text and buttons vertically */
+    padding-right: 150px;
+}
+
+/* Adjust the button styling */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+
+/* Button styling */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #e0c097;
+    color: #2c2b2b;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.btn-edit {
+    background-color: #4CAF50; /* Green */
+}
+
+.btn-delete {
+    background-color: #f44336; /* Red */
+}
+
+.btn:hover {
+    opacity: 0.9; /* Slight hover effect */
+}
+
+
+/* Styling for charts */
+img {
+    display: block;
+    margin: 20px auto;
+    width: 100%;  /* Full-width for responsiveness */
+    max-width: 600px;  /* Limit the max width */
+}
+
+/* Form styling */
+.form-container {
+    margin-top: 20px;
+    background-color: #2a2a2a;  /* For dark theme */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+}
+
+input::placeholder {
+    color: #bbb;
+}
+
+.btn-submit {
+    background-color: #c69749;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-submit:hover {
+    background-color: #c69749;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background-color: #c69749;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background-color: #e0c097;
+}
+
+.btn-btn-submit{
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    background-color: #c69749;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+}
